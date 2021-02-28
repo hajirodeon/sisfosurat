@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{judulku}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="refresh" content="{sesidt}; URL={sumber}/expire.php">
+<meta name="author" content="hajirobe">
+<meta name="description" content="{description}">
+<meta name="url" content="{url}">
+<meta name="keywords" content="{keywords}">
+<link href="{sumber}/inc/style/sisfokol.css" rel="stylesheet" type="text/css">
+<link href="{sumber}/inc/style/flexdropdown.css" rel="stylesheet" type="text/css">
+<link href="{sumber}/inc/style/sunny/jquery-ui.css" rel="stylesheet" type="text/css" media="screen">
+<script type="text/javascript" src="{sumber}/inc/js/jquery.js"></script>
+<script type="text/javascript" src="{sumber}/inc/js/flexdropdown.js"></script>
+<script type="text/javascript" src="{sumber}/inc/js/jquery.js"></script>
+<script type="text/javascript" src="{sumber}/inc/js/jquery-ui.js"></script>
+<script type="text/javascript" src="{sumber}/inc/js/ui/jquery.ui.core.js"></script>
+<script type="text/javascript" src="{sumber}/inc/js/ui/jquery.ui.datepicker.js"></script>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#loading').ajaxStart(function(){
+			$(this).show();
+		}).ajaxStop(function(){
+			$(this).hide();
+		});
+
+});
+</script>
+
+
+<style>
+  #foo {
+    position: fixed;
+    top: 0px;
+    z-index: 1;
+  }
+
+
+  #foo_isi {
+    position: relative;
+    top: 90px;
+  }
+
+
+</style>
+
+<!--
+///////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////
+/////// SISFOSURAT v1.0                          ///////
+/////// Sistem Informasi Surat - Menyurat                    ///////
+///////////////////////////////////////////////////////////////////////
+/////// Dibuat oleh :                                           ///////
+/////// Agus Muhajir, S.Kom                                     ///////
+/////// URL 	:                                               ///////
+///////     * http://omahbiasawae.com/                          ///////
+///////     * http://sisfokol.wordpress.com/                    ///////
+///////     * http://hajirodeon.wordpress.com/                  ///////
+///////     * http://yahoogroup.com/groups/sisfokol/            ///////
+///////     * http://yahoogroup.com/groups/linuxbiasawae/       ///////
+/////// E-Mail	:                                               ///////
+///////     * hajirodeon@yahoo.com                              ///////
+///////     * hajirodeon@gmail.com                              ///////
+/////// HP/SMS/WA : 081-829-88-54                               ///////
+///////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////
+//-->
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" onLoad="{diload}">
+	
+
+
+<div id="foo">
+	<div id="loading" style="display:none">
+	<img src="{sumber}/img/loading.gif" width="16" height="16">
+	<font color="white" style="background-color:red; width:200px;">
+	Loading...
+	</font>
+	</div>
+	
+	<div id="result"></div>
+	
+
+	
+  <TABLE WIDTH=1200 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+    <TR height="75" background="{sumber}/img/header.png">
+		<td>
+		<b>
+		<font size="6" color="#7b1f53">
+		SISFOSURAT
+		</font>
+		</b>
+		</font>
+
+	</TD>
+    </TR>
+  </TABLE>
+
+
+ <table width="1200" border="0" cellpadding="0" cellspacing="0" bgcolor="#e3e4cc">
+    <tr>
+      <td valign="top">
+	  {isi_menu}
+	  </td>
+    </tr>
+  </table>
+</div>
+
+
+
+
+<div id="foo_isi">
+
+<table width="1200" height="500" border="0" cellpadding="5" cellspacing="0" bgcolor="#e3e4cc">
+    <tr>
+      <td valign="top">
+	  {isi}
+	  <br>
+	  <br>
+	  <br>
+	  </td>
+    </tr>
+  </table>
+
+
+  <table width="1200" border="0" cellpadding="5" cellspacing="0" bgcolor="#a85475">
+    <tr>
+      <td align="left">
+	  <font color="white">
+	  &copy;2018. {versi}
+	  </font>
+	  </td>
+    </tr>
+  </table>
+
+
+</div>
+
+
+
+
+
+
+
+</body>
+</html>

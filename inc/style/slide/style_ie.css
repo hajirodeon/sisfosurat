@@ -1,0 +1,9 @@
+.jms-slideshow, .step{
+	width: 1000px;
+}
+.jms-content{
+	margin: 0px 390px 0px 60px;
+}
+.step img{
+	right: 40px;
+}
