@@ -13,7 +13,7 @@ nocache;
 //nilai
 $filenya = "rekap_kirim_keluar.php";
 $judul = "Rekap Kirim Surat Keluar";
-$judulku = "$judul  [$surat_session : $nip11_session. $nm11_session]";
+$judulku = "[SURAT KELUAR] $judul";
 $judulx = $judul;
 $page = nosql($_REQUEST['page']);
 if ((empty($page)) OR ($page == "0"))
@@ -31,8 +31,7 @@ ob_start();
 //js
 require("../../inc/js/jumpmenu.js");
 require("../../inc/js/swap.js");
-require("../../inc/menu/admsurat.php");
-xheadline($judul);
+
 
 //view //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 echo '<form action="'.$filenya.'" method="post" name="formx">';
@@ -95,7 +94,7 @@ else
 						"ORDER BY round(surat_keluar.no_urut) DESC";
 	$sqlresult = $sqlcount;
 
-	$count = mysqli_num_rows(mysqli_query($sqlcount));
+	$count = mysqli_num_rows(mysqli_query($koneksi, $sqlcount));
 	$pages = $p->findPages($count, $limit);
 	$result = mysqli_query($koneksi, "$sqlresult LIMIT ".$start.", ".$limit);
 	$pagelist = $p->pageList($_GET['page'], $pages, $target);

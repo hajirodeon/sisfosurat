@@ -13,7 +13,7 @@ nocache;
 //nilai
 $filenya = "penempatan_masuk.php";
 $judul = "Penempatan Surat Masuk";
-$judulku = "$judul  [$surat_session : $nip11_session. $nm11_session]";
+$judulku = "[SURAT MASUK] $judul";
 $judulx = $judul;
 $s = nosql($_REQUEST['s']);
 $ubln = nosql($_REQUEST['ubln']);
@@ -70,7 +70,7 @@ if ($_POST['btnSMP'])
 						"ORDER BY tgl_surat DESC";
 	$sqlresult = $sqlcount;
 
-	$count = mysqli_num_rows(mysqli_query($sqlcount));
+	$count = mysqli_num_rows(mysqli_query($koneksi, $sqlcount));
 	$pages = $p->findPages($count, $limit);
 	$result = mysqli_query($koneksi, "$sqlresult LIMIT ".$start.", ".$limit);
 	$target = "$filenya?ubln=$ubln&uthn=$uthn";
@@ -114,8 +114,7 @@ ob_start();
 require("../../inc/js/jumpmenu.js");
 require("../../inc/js/checkall.js");
 require("../../inc/js/swap.js");
-require("../../inc/menu/admsurat.php");
-xheadline($judul);
+
 
 //view //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 echo '<form action="'.$filenya.'" method="post" name="formx">
@@ -168,7 +167,7 @@ else
 						"ORDER BY tgl_surat DESC";
 	$sqlresult = $sqlcount;
 
-	$count = mysqli_num_rows(mysqli_query($sqlcount));
+	$count = mysqli_num_rows(mysqli_query($koneksi, $sqlcount));
 	$pages = $p->findPages($count, $limit);
 	$result = mysqli_query($koneksi, "$sqlresult LIMIT ".$start.", ".$limit);
 	$target = "$filenya?ubln=$ubln&uthn=$uthn";
@@ -333,8 +332,8 @@ else
 		<input name="ubln" type="hidden" value="'.$ubln.'">
 		<input name="uthn" type="hidden" value="'.$uthn.'">
 
-		<input name="btnALL" type="button" value="SEMUA" onClick="checkAll('.$limit.')">
-		<input name="btnBTL" type="reset" value="BATAL">
+		<input name="btnALL" type="button" value="SEMUA" onClick="checkAll('.$limit.')" class="btn btn-success">
+		<input name="btnBTL" type="reset" value="BATAL" class="btn btn-warning">
 		</td>
 		<td>Total : <strong><font color="#FF0000">'.$count.'</font></strong> Data. '.$pagelist.'</td>
 		</tr>
@@ -437,7 +436,7 @@ else
 		<input name="s" type="hidden" value="'.$s.'">
 		<input name="ubln" type="hidden" value="'.$ubln.'">
 		<input name="uthn" type="hidden" value="'.$uthn.'">
-		<input name="btnSMP" type="submit" value="SIMPAN >>">
+		<input name="btnSMP" type="submit" value="SIMPAN >>" class="btn btn-danger">
 		</p>';
 
 

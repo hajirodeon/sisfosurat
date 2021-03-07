@@ -13,7 +13,7 @@ nocache;
 $filenya = "m_rak.php";
 $diload = "document.formx.rak.focus();";
 $judul = "Rak Surat";
-$judulku = "$judul  [$surat_session : $nip11_session. $nm11_session]";
+$judulku = "[SETTING] $judul";
 $judulx = $judul;
 $s = nosql($_REQUEST['s']);
 
@@ -173,23 +173,22 @@ $total = mysqli_num_rows($q);
 //js
 require("../../inc/js/checkall.js");
 require("../../inc/js/swap.js");
-require("../../inc/menu/admsurat.php");
-xheadline($judul);
+
 
 //view //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 echo '<form action="'.$filenya.'" method="post" name="formx">
 <p>
 <input name="rak" type="text" value="'.$rak.'" size="30">
-<input name="btnSMP" type="submit" value="SIMPAN">
-<input name="btnBTL" type="submit" value="BATAL">
+<input name="btnSMP" type="submit" value="SIMPAN" class="btn btn-danger">
+<input name="btnBTL" type="submit" value="BATAL" class="btn btn-warning">
 </p>';
 
 if ($total != 0)
 	{
 	echo '<table width="400" border="1" cellspacing="0" cellpadding="3">
 	<tr valign="top" bgcolor="'.$warnaheader.'">
-	<td width="1%">&nbsp;</td>
-	<td width="1%">&nbsp;</td>
+	<td width="1">&nbsp;</td>
+	<td width="1">&nbsp;</td>
 	<td><strong><font color="'.$warnatext.'">Nama</font></strong></td>
 	</tr>';
 
@@ -219,7 +218,7 @@ if ($total != 0)
 		<img src="'.$sumber.'/img/edit.gif" width="16" height="16" border="0">
 		</a>
 		</td>
-		<td width="90%">'.$i_rak.'</td>
+		<td>'.$i_rak.'</td>
         </tr>';
 		}
 	while ($row = mysqli_fetch_assoc($q));
@@ -231,9 +230,9 @@ if ($total != 0)
 	<input name="jml" type="hidden" value="'.$total.'">
 	<input name="s" type="hidden" value="'.$s.'">
 	<input name="kd" type="hidden" value="'.$kdx.'">
-	<input name="btnALL" type="button" value="SEMUA" onClick="checkAll('.$total.')">
-	<input name="btnBTL" type="submit" value="BATAL">
-	<input name="btnHPS" type="submit" value="HAPUS">
+	<input name="btnALL" type="button" value="SEMUA" onClick="checkAll('.$total.')" class="btn btn-success">
+	<input name="btnBTL" type="submit" value="BATAL" class="btn btn-warning">
+	<input name="btnHPS" type="submit" value="HAPUS" class="btn btn-danger">
 	</td>
 	<td align="right">Total : <strong><font color="#FF0000">'.$total.'</font></strong> Data.</td>
 	</tr>

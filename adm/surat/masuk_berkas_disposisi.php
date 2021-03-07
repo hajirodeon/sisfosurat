@@ -13,7 +13,7 @@ nocache;
 //nilai
 $filenya = "masuk_berkas_disposisi.php";
 $judul = "Indeks Berkas Surat Masuk Disposisi";
-$judulku = "$judul  [$surat_session : $nip11_session. $nm11_session]";
+$judulku = "[SURAT MASUK] $judul";
 $judulx = $judul;
 $inxkd = nosql($_REQUEST['inxkd']);
 $page = nosql($_REQUEST['page']);
@@ -35,8 +35,7 @@ ob_start();
 //js
 require("../../inc/js/swap.js");
 require("../../inc/js/jumpmenu.js");
-require("../../inc/menu/admsurat.php");
-xheadline($judul);
+
 
 
 
@@ -79,7 +78,7 @@ $sqlcount = "SELECT surat_masuk.*, surat_masuk.kd AS sukd, surat_masuk_disposisi
 		"ORDER BY surat_masuk.tgl_terima DESC";
 $sqlresult = $sqlcount;
 
-$count = mysqli_num_rows(mysqli_query($sqlcount));
+$count = mysqli_num_rows(mysqli_query($koneksi, $sqlcount));
 $pages = $p->findPages($count, $limit);
 $result = mysqli_query($koneksi, "$sqlresult LIMIT ".$start.", ".$limit);
 $target = "$filenya?inxkd=$inxkd";

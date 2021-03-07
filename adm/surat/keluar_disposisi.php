@@ -12,7 +12,7 @@ nocache;
 //nilai
 $filenya = "keluar_disposisi.php";
 $judul = "Lembar Disposisi";
-$judulku = "$judul  [$surat_session : $nip11_session. $nm11_session]";
+$judulku = "[SURAT KELUAR] $judul";
 $judulx = $judul;
 $sukd = nosql($_REQUEST['sukd']);
 
@@ -191,8 +191,7 @@ ob_start();
 
 //js
 require("../../inc/js/swap.js");
-require("../../inc/menu/admsurat.php");
-xheadline($judul);
+
 
 //view //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 echo '<form action="'.$filenya.'" method="post" name="formx">
@@ -362,12 +361,12 @@ Status Pengesahan :
 </table>
 <br>
 <input type="hidden" name="sukd" value="'.$sukd.'">
-<input name="btnBTL" type="submit" value="BATAL">
-<input name="btnSMP" type="submit" value="SIMPAN">
+<input name="btnBTL" type="submit" value="BATAL" class="btn btn-warning">
+<input name="btnSMP" type="submit" value="SIMPAN" class="btn btn-danger">
 
 [<a href="keluar_disposisi_pdf.php?sukd='.$sukd.'" target="_blank"><img src="'.$sumber.'/img/pdf.gif" border="0" width="16" height="16"></a>]
 
-<input name="btnDFT" type="submit" value="Lihat Daftar >>">
+<input name="btnDFT" type="submit" value="Lihat Daftar >>" class="btn btn-success">
 <br>
 <br>
 <br>

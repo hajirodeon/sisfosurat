@@ -14,7 +14,7 @@ nocache;
 $filenya = "pass.php";
 $diload = "document.formx.passlama.focus();";
 $judul = "Ganti Password";
-$judulku = "[$surat_session : $nip11_session. $nm11_session] ==> $judul";
+$judulku = "[SETTING] $judul";
 $juduli = $judul;
 
 
@@ -96,9 +96,7 @@ if ($_POST['btnSMP'])
 //isi *START
 ob_start();
 
-//js
-require("../../inc/menu/admsurat.php");
-xheadline($judul);
+
 
 //view //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 echo '<form action="'.$filenya.'" method="post" name="formx">
@@ -112,8 +110,8 @@ echo '<form action="'.$filenya.'" method="post" name="formx">
 <input name="passbaru2" type="password" size="15">
 </p>
 <p>
-<input name="btnSMP" type="submit" value="SIMPAN">
-<input name="btnBTL" type="reset" value="BATAL">
+<input name="btnSMP" type="submit" value="SIMPAN" class="btn btn-danger">
+<input name="btnBTL" type="reset" value="BATAL" class="btn btn-warning">
 </p>
 </form>';
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

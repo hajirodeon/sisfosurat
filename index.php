@@ -78,6 +78,7 @@ if ($_POST['btnOK'])
 			xclose($koneksi);
 
 			//re-direct
+			$pesan = "Password Salah. Harap Diulangi...!!";
 			pekem($pesan, $filenya);
 			exit();
 			}
@@ -109,10 +110,10 @@ ob_start();
 echo '<form action="'.$filenya.'" method="post" name="formx">
 <table width="100%" border="0" cellspacing="3" cellpadding="0">
 <tr valign="top" align="center">
-<td width="500">';
+<td width="100%">';
 
 
-echo '<table bgcolor="gray" width="500" border="0" cellspacing="3" cellpadding="0">
+echo '<table bgcolor="gray" width="100%" border="0" cellspacing="3" cellpadding="0">
 <tr valign="top">
 <td>
 
@@ -131,19 +132,19 @@ SISFOSURAT
 <p>
 Username :
 <br>
-<input name="usernamex" type="text" size="10">
+<input name="usernamex" type="text" size="15" required>
 </p>
 
 
 <p>
 Password :
 <br>
-<input name="passwordx" type="password" size="10">
+<input name="passwordx" type="password" size="15" required>
 </p>
 
 
 <p>
-<input name="btnOK" type="submit" value="OK &gt;&gt;&gt;">
+<input name="btnOK" type="submit" value="OK &gt;&gt;&gt;" class="btn btn-danger">
 </p>
 
 <hr>
@@ -158,7 +159,7 @@ user/pass : admin
 </div>';
 
 
-echo '<table bgcolor="#d7a2bd" width="500" border="0" cellspacing="3" cellpadding="0">
+echo '<table bgcolor="#d7a2bd" width="100%" border="0" cellspacing="3" cellpadding="0">
 <tr valign="top" align="right">
 <td>
 (c) 2021. '.$versi.'

@@ -13,7 +13,7 @@ nocache;
 $filenya = "m_map.php";
 $diload = "document.formx.map.focus();";
 $judul = "Map Surat";
-$judulku = "$judul  [$surat_session : $nip11_session. $nm11_session]";
+$judulku = "[SETTING] $judul";
 $judulx = $judul;
 $s = nosql($_REQUEST['s']);
 
@@ -173,15 +173,14 @@ $total = mysqli_num_rows($q);
 //js
 require("../../inc/js/checkall.js");
 require("../../inc/js/swap.js");
-require("../../inc/menu/admsurat.php");
-xheadline($judul);
+
 
 //view //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 echo '<form action="'.$filenya.'" method="post" name="formx">
 <p>
 <input name="map" type="text" value="'.$map.'" size="30">
-<input name="btnSMP" type="submit" value="SIMPAN">
-<input name="btnBTL" type="submit" value="BATAL">
+<input name="btnSMP" type="submit" value="SIMPAN" class="btn btn-danger">
+<input name="btnBTL" type="submit" value="BATAL" class="btn btn-warning">
 </p>';
 
 if ($total != 0)
@@ -231,9 +230,9 @@ if ($total != 0)
 	<input name="jml" type="hidden" value="'.$total.'">
 	<input name="s" type="hidden" value="'.$s.'">
 	<input name="kd" type="hidden" value="'.$kdx.'">
-	<input name="btnALL" type="button" value="SEMUA" onClick="checkAll('.$total.')">
-	<input name="btnBTL" type="submit" value="BATAL">
-	<input name="btnHPS" type="submit" value="HAPUS">
+	<input name="btnALL" type="button" value="SEMUA" onClick="checkAll('.$total.')" class="btn btn-success">
+	<input name="btnBTL" type="submit" value="BATAL" class="btn btn-warning">
+	<input name="btnHPS" type="submit" value="HAPUS" class="btn btn-danger">
 	</td>
 	<td align="right">Total : <strong><font color="#FF0000">'.$total.'</font></strong> Data.</td>
 	</tr>

@@ -13,7 +13,7 @@ nocache;
 //nilai
 $filenya = "rekap_bulanan_masuk.php";
 $judul = "Rekap Bulanan Surat Masuk";
-$judulku = "$judul  [$surat_session : $nip11_session. $nm11_session]";
+$judulku = "[SURAT MASUK] $judul";
 $judulx = $judul;
 $ubln = nosql($_REQUEST['ubln']);
 $uthn = nosql($_REQUEST['uthn']);
@@ -47,8 +47,7 @@ ob_start();
 //js
 require("../../inc/js/jumpmenu.js");
 require("../../inc/js/swap.js");
-require("../../inc/menu/admsurat.php");
-xheadline($judul);
+
 
 //view //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 echo '<form action="'.$filenya.'" method="post" name="formx">
@@ -101,7 +100,7 @@ else
 						"ORDER BY tgl_surat DESC";
 	$sqlresult = $sqlcount;
 
-	$count = mysqli_num_rows(mysqli_query($sqlcount));
+	$count = mysqli_num_rows(mysqli_query($koneksi, $sqlcount));
 	$pages = $p->findPages($count, $limit);
 	$result = mysqli_query($koneksi, "$sqlresult LIMIT ".$start.", ".$limit);
 	$target = "$filenya?ubln=$ubln&uthn=$uthn";

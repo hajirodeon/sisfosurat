@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.2
--- http://www.phpmyadmin.net
+-- version 5.0.2
+-- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 05 Mei 2016 pada 05.28
--- Versi Server: 10.1.9-MariaDB
--- PHP Version: 5.5.30
+-- Waktu pembuatan: 07 Mar 2021 pada 03.39
+-- Versi server: 10.4.14-MariaDB
+-- Versi PHP: 7.4.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -28,8 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `adminx` (
   `kd` varchar(50) NOT NULL DEFAULT '',
-  `usernamex` varchar(15) NOT NULL DEFAULT '',
-  `passwordx` varchar(50) NOT NULL DEFAULT ''
+  `usernamex` varchar(100) DEFAULT NULL,
+  `passwordx` varchar(100) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -47,26 +48,26 @@ INSERT INTO `adminx` (`kd`, `usernamex`, `passwordx`) VALUES
 
 CREATE TABLE `surat_keluar` (
   `kd` varchar(50) NOT NULL,
-  `no_urut` varchar(10) NOT NULL,
-  `no_surat` varchar(255) NOT NULL,
-  `tujuan` varchar(255) NOT NULL,
-  `tgl_surat` date NOT NULL,
-  `perihal` varchar(255) NOT NULL,
-  `tgl_kirim` date NOT NULL,
-  `kd_lemari` varchar(50) NOT NULL,
-  `kd_rak` varchar(50) NOT NULL,
-  `kd_ruang` varchar(50) NOT NULL,
-  `kd_sifat` varchar(50) NOT NULL,
-  `lampiran` varchar(255) NOT NULL,
-  `tembusan` varchar(255) NOT NULL,
-  `tgl_deadline_balas` date NOT NULL,
-  `kd_balas` varchar(50) NOT NULL,
-  `ket` varchar(255) NOT NULL,
-  `kd_status` varchar(50) NOT NULL,
-  `kd_klasifikasi` varchar(50) NOT NULL,
-  `kd_map` varchar(50) NOT NULL,
-  `filex` varchar(255) NOT NULL,
-  `postdate` datetime NOT NULL
+  `no_urut` varchar(10) DEFAULT NULL,
+  `no_surat` varchar(255) DEFAULT NULL,
+  `tujuan` varchar(255) DEFAULT NULL,
+  `tgl_surat` date DEFAULT NULL,
+  `perihal` longtext DEFAULT NULL,
+  `tgl_kirim` date DEFAULT NULL,
+  `kd_lemari` varchar(50) DEFAULT NULL,
+  `kd_rak` varchar(50) DEFAULT NULL,
+  `kd_ruang` varchar(50) DEFAULT NULL,
+  `kd_sifat` varchar(50) DEFAULT NULL,
+  `lampiran` longtext DEFAULT NULL,
+  `tembusan` longtext DEFAULT NULL,
+  `tgl_deadline_balas` date DEFAULT NULL,
+  `kd_balas` varchar(50) DEFAULT NULL,
+  `ket` longtext DEFAULT NULL,
+  `kd_status` varchar(50) DEFAULT NULL,
+  `kd_klasifikasi` varchar(50) DEFAULT NULL,
+  `kd_map` varchar(50) DEFAULT NULL,
+  `filex` longtext DEFAULT NULL,
+  `postdate` datetime DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -84,16 +85,16 @@ INSERT INTO `surat_keluar` (`kd`, `no_urut`, `no_surat`, `tujuan`, `tgl_surat`, 
 
 CREATE TABLE `surat_keluar_disposisi` (
   `kd` varchar(50) NOT NULL,
-  `kd_indeks` varchar(50) NOT NULL,
-  `kd_surat` varchar(50) NOT NULL,
-  `tgl_selesai` date NOT NULL,
-  `isi` varchar(255) NOT NULL,
-  `diteruskan` varchar(255) NOT NULL,
-  `tgl_kembali` date NOT NULL,
-  `kepada` varchar(100) NOT NULL,
-  `pengesahan` enum('true','false') NOT NULL DEFAULT 'false',
-  `harap` varchar(255) NOT NULL,
-  `catatan` varchar(255) NOT NULL
+  `kd_indeks` varchar(50) DEFAULT NULL,
+  `kd_surat` varchar(50) DEFAULT NULL,
+  `tgl_selesai` date DEFAULT NULL,
+  `isi` longtext DEFAULT NULL,
+  `diteruskan` varchar(255) DEFAULT NULL,
+  `tgl_kembali` date DEFAULT NULL,
+  `kepada` varchar(100) DEFAULT NULL,
+  `pengesahan` enum('true','false') DEFAULT 'false',
+  `harap` varchar(255) DEFAULT NULL,
+  `catatan` varchar(255) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -111,11 +112,11 @@ INSERT INTO `surat_keluar_disposisi` (`kd`, `kd_indeks`, `kd_surat`, `tgl_selesa
 
 CREATE TABLE `surat_keluar_kendali` (
   `kd` varchar(50) NOT NULL,
-  `kd_indeks` varchar(50) NOT NULL,
-  `kd_surat` varchar(50) NOT NULL,
-  `tgl_selesai` date NOT NULL,
-  `tgl_kembali` date NOT NULL,
-  `kepada` varchar(100) NOT NULL
+  `kd_indeks` varchar(50) DEFAULT NULL,
+  `kd_surat` varchar(50) DEFAULT NULL,
+  `tgl_selesai` date DEFAULT NULL,
+  `tgl_kembali` date DEFAULT NULL,
+  `kepada` varchar(100) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -133,27 +134,27 @@ INSERT INTO `surat_keluar_kendali` (`kd`, `kd_indeks`, `kd_surat`, `tgl_selesai`
 
 CREATE TABLE `surat_masuk` (
   `kd` varchar(50) NOT NULL,
-  `no_urut` varchar(10) NOT NULL,
-  `no_surat` varchar(255) NOT NULL,
-  `asal` varchar(255) NOT NULL,
-  `tujuan` varchar(255) NOT NULL,
-  `tgl_surat` date NOT NULL,
-  `perihal` varchar(255) NOT NULL,
-  `tgl_terima` date NOT NULL,
-  `kd_lemari` varchar(50) NOT NULL,
-  `kd_rak` varchar(50) NOT NULL,
-  `kd_map` varchar(50) NOT NULL,
-  `kd_ruang` varchar(50) NOT NULL,
-  `kd_sifat` varchar(50) NOT NULL,
-  `lampiran` varchar(255) NOT NULL,
-  `tembusan` varchar(255) NOT NULL,
-  `tgl_deadline_balas` date NOT NULL,
-  `kd_balas` varchar(50) NOT NULL,
-  `ket` varchar(255) NOT NULL,
-  `kd_status` varchar(50) NOT NULL,
-  `kd_klasifikasi` varchar(50) NOT NULL,
-  `filex` varchar(255) NOT NULL,
-  `postdate` datetime NOT NULL
+  `no_urut` varchar(10) DEFAULT NULL,
+  `no_surat` varchar(255) DEFAULT NULL,
+  `asal` varchar(255) DEFAULT NULL,
+  `tujuan` varchar(255) DEFAULT NULL,
+  `tgl_surat` date DEFAULT NULL,
+  `perihal` varchar(255) DEFAULT NULL,
+  `tgl_terima` date DEFAULT NULL,
+  `kd_lemari` varchar(50) DEFAULT NULL,
+  `kd_rak` varchar(50) DEFAULT NULL,
+  `kd_map` varchar(50) DEFAULT NULL,
+  `kd_ruang` varchar(50) DEFAULT NULL,
+  `kd_sifat` varchar(50) DEFAULT NULL,
+  `lampiran` varchar(255) DEFAULT NULL,
+  `tembusan` varchar(255) DEFAULT NULL,
+  `tgl_deadline_balas` date DEFAULT NULL,
+  `kd_balas` varchar(50) DEFAULT NULL,
+  `ket` varchar(255) DEFAULT NULL,
+  `kd_status` varchar(50) DEFAULT NULL,
+  `kd_klasifikasi` varchar(50) DEFAULT NULL,
+  `filex` longtext DEFAULT NULL,
+  `postdate` datetime DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -171,16 +172,16 @@ INSERT INTO `surat_masuk` (`kd`, `no_urut`, `no_surat`, `asal`, `tujuan`, `tgl_s
 
 CREATE TABLE `surat_masuk_disposisi` (
   `kd` varchar(50) NOT NULL,
-  `kd_indeks` varchar(50) NOT NULL,
-  `kd_surat` varchar(50) NOT NULL,
-  `tgl_selesai` date NOT NULL,
-  `isi` varchar(255) NOT NULL,
-  `diteruskan` varchar(255) NOT NULL,
-  `tgl_kembali` date NOT NULL,
-  `kepada` varchar(100) NOT NULL,
-  `pengesahan` enum('true','false') NOT NULL DEFAULT 'false',
-  `harap` varchar(255) NOT NULL,
-  `catatan` varchar(255) NOT NULL
+  `kd_indeks` varchar(50) DEFAULT NULL,
+  `kd_surat` varchar(50) DEFAULT NULL,
+  `tgl_selesai` date DEFAULT NULL,
+  `isi` longtext DEFAULT NULL,
+  `diteruskan` varchar(255) DEFAULT NULL,
+  `tgl_kembali` date DEFAULT NULL,
+  `kepada` varchar(100) DEFAULT NULL,
+  `pengesahan` enum('true','false') DEFAULT 'false',
+  `harap` varchar(255) DEFAULT NULL,
+  `catatan` varchar(255) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -198,12 +199,12 @@ INSERT INTO `surat_masuk_disposisi` (`kd`, `kd_indeks`, `kd_surat`, `tgl_selesai
 
 CREATE TABLE `surat_masuk_kendali` (
   `kd` varchar(50) NOT NULL,
-  `kd_indeks` varchar(50) NOT NULL,
-  `kd_surat` varchar(50) NOT NULL,
-  `tgl_selesai` date NOT NULL,
-  `tgl_kembali` date NOT NULL,
-  `kepada` varchar(100) NOT NULL,
-  `pengesahan` enum('true','false') NOT NULL DEFAULT 'false'
+  `kd_indeks` varchar(50) DEFAULT NULL,
+  `kd_surat` varchar(50) DEFAULT NULL,
+  `tgl_selesai` date DEFAULT NULL,
+  `tgl_kembali` date DEFAULT NULL,
+  `kepada` varchar(100) DEFAULT NULL,
+  `pengesahan` enum('true','false') DEFAULT 'false'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -221,7 +222,7 @@ INSERT INTO `surat_masuk_kendali` (`kd`, `kd_indeks`, `kd_surat`, `tgl_selesai`,
 
 CREATE TABLE `surat_m_balas` (
   `kd` varchar(50) NOT NULL,
-  `balas` varchar(100) NOT NULL
+  `balas` varchar(100) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -241,7 +242,7 @@ INSERT INTO `surat_m_balas` (`kd`, `balas`) VALUES
 
 CREATE TABLE `surat_m_indeks` (
   `kd` varchar(50) NOT NULL,
-  `indeks` varchar(50) NOT NULL
+  `indeks` varchar(50) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -262,7 +263,7 @@ INSERT INTO `surat_m_indeks` (`kd`, `indeks`) VALUES
 
 CREATE TABLE `surat_m_klasifikasi` (
   `kd` varchar(50) NOT NULL,
-  `klasifikasi` varchar(100) NOT NULL
+  `klasifikasi` varchar(100) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -317,7 +318,7 @@ INSERT INTO `surat_m_klasifikasi` (`kd`, `klasifikasi`) VALUES
 
 CREATE TABLE `surat_m_lemari` (
   `kd` varchar(50) NOT NULL,
-  `lemari` varchar(50) NOT NULL
+  `lemari` varchar(50) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -338,7 +339,7 @@ INSERT INTO `surat_m_lemari` (`kd`, `lemari`) VALUES
 
 CREATE TABLE `surat_m_map` (
   `kd` varchar(50) NOT NULL,
-  `map` varchar(50) NOT NULL
+  `map` varchar(50) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -358,7 +359,7 @@ INSERT INTO `surat_m_map` (`kd`, `map`) VALUES
 
 CREATE TABLE `surat_m_rak` (
   `kd` varchar(50) NOT NULL,
-  `rak` varchar(50) NOT NULL
+  `rak` varchar(50) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -378,7 +379,7 @@ INSERT INTO `surat_m_rak` (`kd`, `rak`) VALUES
 
 CREATE TABLE `surat_m_ruang` (
   `kd` varchar(50) NOT NULL,
-  `ruang` varchar(50) NOT NULL
+  `ruang` varchar(50) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -398,7 +399,7 @@ INSERT INTO `surat_m_ruang` (`kd`, `ruang`) VALUES
 
 CREATE TABLE `surat_m_sifat` (
   `kd` varchar(50) NOT NULL,
-  `sifat` varchar(50) NOT NULL
+  `sifat` varchar(50) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -418,7 +419,7 @@ INSERT INTO `surat_m_sifat` (`kd`, `sifat`) VALUES
 
 CREATE TABLE `surat_m_status` (
   `kd` varchar(50) NOT NULL,
-  `status` varchar(100) NOT NULL
+  `status` varchar(100) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -437,10 +438,101 @@ INSERT INTO `surat_m_status` (`kd`, `status`) VALUES
 --
 
 --
--- Indexes for table `adminx`
+-- Indeks untuk tabel `adminx`
 --
 ALTER TABLE `adminx`
   ADD PRIMARY KEY (`kd`);
+
+--
+-- Indeks untuk tabel `surat_keluar`
+--
+ALTER TABLE `surat_keluar`
+  ADD PRIMARY KEY (`kd`);
+
+--
+-- Indeks untuk tabel `surat_keluar_disposisi`
+--
+ALTER TABLE `surat_keluar_disposisi`
+  ADD PRIMARY KEY (`kd`);
+
+--
+-- Indeks untuk tabel `surat_keluar_kendali`
+--
+ALTER TABLE `surat_keluar_kendali`
+  ADD PRIMARY KEY (`kd`);
+
+--
+-- Indeks untuk tabel `surat_masuk`
+--
+ALTER TABLE `surat_masuk`
+  ADD PRIMARY KEY (`kd`);
+
+--
+-- Indeks untuk tabel `surat_masuk_disposisi`
+--
+ALTER TABLE `surat_masuk_disposisi`
+  ADD PRIMARY KEY (`kd`);
+
+--
+-- Indeks untuk tabel `surat_masuk_kendali`
+--
+ALTER TABLE `surat_masuk_kendali`
+  ADD PRIMARY KEY (`kd`);
+
+--
+-- Indeks untuk tabel `surat_m_balas`
+--
+ALTER TABLE `surat_m_balas`
+  ADD PRIMARY KEY (`kd`);
+
+--
+-- Indeks untuk tabel `surat_m_indeks`
+--
+ALTER TABLE `surat_m_indeks`
+  ADD PRIMARY KEY (`kd`);
+
+--
+-- Indeks untuk tabel `surat_m_klasifikasi`
+--
+ALTER TABLE `surat_m_klasifikasi`
+  ADD PRIMARY KEY (`kd`);
+
+--
+-- Indeks untuk tabel `surat_m_lemari`
+--
+ALTER TABLE `surat_m_lemari`
+  ADD PRIMARY KEY (`kd`);
+
+--
+-- Indeks untuk tabel `surat_m_map`
+--
+ALTER TABLE `surat_m_map`
+  ADD PRIMARY KEY (`kd`);
+
+--
+-- Indeks untuk tabel `surat_m_rak`
+--
+ALTER TABLE `surat_m_rak`
+  ADD PRIMARY KEY (`kd`);
+
+--
+-- Indeks untuk tabel `surat_m_ruang`
+--
+ALTER TABLE `surat_m_ruang`
+  ADD PRIMARY KEY (`kd`);
+
+--
+-- Indeks untuk tabel `surat_m_sifat`
+--
+ALTER TABLE `surat_m_sifat`
+  ADD PRIMARY KEY (`kd`);
+
+--
+-- Indeks untuk tabel `surat_m_status`
+--
+ALTER TABLE `surat_m_status`
+  ADD PRIMARY KEY (`kd`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

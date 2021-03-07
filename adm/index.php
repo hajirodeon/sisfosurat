@@ -19,8 +19,6 @@ $judulku = "$judul  [$surat_session : $nip11_session. $nm11_session]";
 //isi *START
 ob_start();
 
-//menu
-require("../inc/menu/admsurat.php");
 
 //view //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 echo '<table width="100%" height="100%" border="0" cellspacing="0" cellpadding="3">

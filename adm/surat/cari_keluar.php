@@ -13,7 +13,7 @@ nocache;
 //nilai
 $filenya = "cari_keluar.php";
 $judul = "Cari Surat Keluar";
-$judulku = "$judul  [$surat_session : $nip11_session. $nm11_session]";
+$judulku = "[SURAT KELUAR] $judul";
 $judulx = $judul;
 $s = nosql($_REQUEST['s']);
 $kunci = cegah($_REQUEST['kunci']);
@@ -38,8 +38,8 @@ ob_start();
 //js
 require("../../inc/js/jumpmenu.js");
 require("../../inc/js/swap.js");
-require("../../inc/menu/admsurat.php");
-xheadline($judul);
+
+
 
 //view //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 echo '<form action="'.$filenya.'" method="post" name="formx">';
@@ -119,7 +119,7 @@ if ($_POST['btnCARI2'])
 				"ORDER BY round(surat_keluar.tgl_kirim) DESC";
 		$sqlresult = $sqlcount;
 
-		$count = mysqli_num_rows(mysqli_query($sqlcount));
+		$count = mysqli_num_rows(mysqli_query($koneksi, $sqlcount));
 		$pages = $p->findPages($count, $limit);
 		$result = mysqli_query($koneksi, "$sqlresult LIMIT ".$start.", ".$limit);
 		$target = "$filenya?kunci=$kunci";
@@ -320,8 +320,8 @@ else
 	echo '<p>
 	Kata Kunci :
 	<input type="text" name="kunci" value="" size="20">
-	<input type="submit" name="btnCARI2" value="CARI">
-	<input type="reset" name="btnBTL" value="BATAL">';
+	<input type="submit" name="btnCARI2" value="CARI" class="btn btn-danger">
+	<input type="reset" name="btnBTL" value="BATAL" class="btn btn-warning">';
 	}
 
 

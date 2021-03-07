@@ -13,7 +13,7 @@ nocache;
 //nilai
 $filenya = "masuk.php";
 $judul = "Data Surat Masuk";
-$judulku = "$judul  [$surat_session : $nip11_session. $nm11_session]";
+$judulku = "[SURAT MASUK] $judul";
 $judulx = $judul;
 $s = nosql($_REQUEST['s']);
 $sukd = nosql($_REQUEST['sukd']);
@@ -387,7 +387,7 @@ if ($_POST['btnHPS'])
 			"ORDER BY round(no_urut) DESC";
 	$sqlresult = $sqlcount;
 
-	$count = mysqli_num_rows(mysqli_query($sqlcount));
+	$count = mysqli_num_rows(mysqli_query($koneksi, $sqlcount));
 	$pages = $p->findPages($count, $limit);
 	$result = mysqli_query($koneksi, "$sqlresult LIMIT ".$start.", ".$limit);
 	$pagelist = $p->pageList($_GET['page'], $pages, $target);
@@ -555,16 +555,14 @@ ob_start();
 require("../../inc/js/checkall.js");
 require("../../inc/js/swap.js");
 require("../../inc/js/number.js");
-require("../../inc/menu/admsurat.php");
 
 
 //view //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 echo '<form action="'.$filenya.'" method="post" enctype="multipart/form-data" name="formx">
 <table width="100%" border="0" cellspacing="0" cellpadding="3">
 <tr>
-<td>';
-xheadline($judul);
-echo ' [<a href="'.$filenya.'?s=baru">Input Baru</a>].
+<td>
+[<a href="'.$filenya.'?s=baru">Input Baru</a>].
 [<a href="cari_masuk.php">Cari</a>].
 </td>
 </tr>
@@ -1164,12 +1162,12 @@ if (($s == "baru") OR ($s == "edit"))
 	<input name="page" type="hidden" value="'.$page.'">
 	<input name="s" type="hidden" value="'.$s.'">
 	<input name="sukd" type="hidden" value="'.$sukd.'">
-	<input name="btnBTL" type="submit" value="BATAL">
-	<input name="btnSMP" type="submit" value="SIMPAN">
+	<input name="btnBTL" type="submit" value="BATAL" class="btn btn-warning">
+	<input name="btnSMP" type="submit" value="SIMPAN" class="btn btn-danger">
 
 	[<a href="masuk_disposisi_pdf.php?sukd='.$sukd.'" target="_blank"><img src="'.$sumber.'/img/pdf.gif" border="0" width="16" height="16"></a>]
 
-	<input name="btnBTL" type="submit" value="Lihat Daftar >>">
+	<input name="btnBTL" type="submit" value="Lihat Daftar >>" class="btn btn-success">
 	<br>
 	<hr>';
 
@@ -1208,7 +1206,7 @@ else
 			"ORDER BY tgl_terima DESC";
 	$sqlresult = $sqlcount;
 
-	$count = mysqli_num_rows(mysqli_query($sqlcount));
+	$count = mysqli_num_rows(mysqli_query($koneksi, $sqlcount));
 	$pages = $p->findPages($count, $limit);
 	$result = mysqli_query($koneksi, "$sqlresult LIMIT ".$start.", ".$limit);
 	$pagelist = $p->pageList($_GET['page'], $pages, $target);
@@ -1405,9 +1403,9 @@ else
 		<input name="page" type="hidden" value="'.$page.'">
 		<input name="s" type="hidden" value="'.$s.'">
 		<input name="sukd" type="hidden" value="'.$sukd.'">
-		<input name="btnALL" type="button" value="SEMUA" onClick="checkAll('.$limit.')">
-		<input name="btnBTL" type="reset" value="BATAL">
-		<input name="btnHPS" type="submit" value="HAPUS">
+		<input name="btnALL" type="button" value="SEMUA" onClick="checkAll('.$limit.')" class="btn btn-success">
+		<input name="btnBTL" type="reset" value="BATAL" class="btn btn-warning">
+		<input name="btnHPS" type="submit" value="HAPUS" class="btn btn-danger">
 		Total : <strong><font color="#FF0000">'.$count.'</font></strong> Data. '.$pagelist.'</td>
 		</tr>
 		</table>

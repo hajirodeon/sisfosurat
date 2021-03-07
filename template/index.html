@@ -1,150 +1,410 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<title>{judulku}</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<meta http-equiv="refresh" content="{sesidt}; URL={sumber}/expire.php">
-<meta name="author" content="hajirobe">
-<meta name="description" content="{description}">
-<meta name="url" content="{url}">
-<meta name="keywords" content="{keywords}">
-<link href="{sumber}/inc/style/sisfokol.css" rel="stylesheet" type="text/css">
-<link href="{sumber}/inc/style/flexdropdown.css" rel="stylesheet" type="text/css">
-<link href="{sumber}/inc/style/sunny/jquery-ui.css" rel="stylesheet" type="text/css" media="screen">
-<script type="text/javascript" src="{sumber}/inc/js/jquery.js"></script>
-<script type="text/javascript" src="{sumber}/inc/js/flexdropdown.js"></script>
-<script type="text/javascript" src="{sumber}/inc/js/jquery.js"></script>
-<script type="text/javascript" src="{sumber}/inc/js/jquery-ui.js"></script>
-<script type="text/javascript" src="{sumber}/inc/js/ui/jquery.ui.core.js"></script>
-<script type="text/javascript" src="{sumber}/inc/js/ui/jquery.ui.datepicker.js"></script>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>{judulku}</title>
+
+    <meta name="author" content="{x_author}">
+	<meta name="description" content="{x_description}">
+	<meta name="url" content="{x_url}">
+	<meta name="keywords" content="{x_keywords}">
+	
+	<meta property="og:title" content="{judul}"/>
+	<meta property="og:type" content="website"/>
+	<meta property="og:description" content="{judul}"/>
+	<meta property="og:url" content="{ke}"/>
+	<meta property="og:site_name" content="{sek_nama}"/>
 
 
-<script type="text/javascript">
-$(document).ready(function() {
-	$('#loading').ajaxStart(function(){
-			$(this).show();
-		}).ajaxStop(function(){
-			$(this).hide();
-		});
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-});
-</script>
+  <!-- Vendor CSS Files -->
+  <link href="{sumber}/template/flexor/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="{sumber}/template/flexor/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="{sumber}/template/flexor/assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="{sumber}/template/flexor/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="{sumber}/template/flexor/assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{sumber}/template/flexor/assets/css/style.css" rel="stylesheet">
+  
+  
+  
+  
+
+
+<!-- Bootstrap core JavaScript -->
+<script src="{sumber}/template/vendor/jquery/jquery.min.js"></script>
+<script src="{sumber}/template/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+
+  
+  
 
 
 <style>
-  #foo {
-    position: fixed;
-    top: 0px;
-    z-index: 1;
-  }
-
-
-  #foo_isi {
-    position: relative;
-    top: 90px;
-  }
-
-
+.badge.badge-success{
+ background-color: red;
+ position: absolute; 
+ top: -5px;
+ right: -5px;
+}
 </style>
+  
+  
 
-<!--
-///////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////
-/////// SISFOSURAT v1.0                          ///////
-/////// Sistem Informasi Surat - Menyurat                    ///////
-///////////////////////////////////////////////////////////////////////
-/////// Dibuat oleh :                                           ///////
-/////// Agus Muhajir, S.Kom                                     ///////
-/////// URL 	:                                               ///////
-///////     * http://omahbiasawae.com/                          ///////
-///////     * http://sisfokol.wordpress.com/                    ///////
-///////     * http://hajirodeon.wordpress.com/                  ///////
-///////     * http://yahoogroup.com/groups/sisfokol/            ///////
-///////     * http://yahoogroup.com/groups/linuxbiasawae/       ///////
-/////// E-Mail	:                                               ///////
-///////     * hajirodeon@yahoo.com                              ///////
-///////     * hajirodeon@gmail.com                              ///////
-/////// HP/SMS/WA : 081-829-88-54                               ///////
-///////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////
-//-->
+
+
 </head>
 
-<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" onLoad="{diload}">
+<body onload="{diload}">
+
+  <!-- ======= Top Bar ======= -->
+  <section id="topbar" class="d-none d-lg-block">
+    <div class="container d-flex">
+      <div class="contact-info mr-auto">
+        <ul>
+          <li><i class="icofont-envelope"></i>Sistem Informasi Pengarsipan Surat Masuk Keluar</li>
+        </ul>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="container d-flex">
+
+      <div class="logo mr-auto">
+        <h1 class="text-light"><a href="{sumber}/adm/index.php"><span>ADMIN</span></a></h1>
+      </div>
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="{sumber}/adm/index.php">BERANDA</a></li>
+          
+          <li class="drop-down"><a href="#">SETTING</a>
+            <ul>
+              	<li>
+              	<a href="{sumber}/adm/s/pass.php">Ganti Password</a>
+              	</li>
+			    
+
+            </ul>
+            
+            
+          </li>
+          
+
+
+
+
+          <li class="drop-down"><a href="#">MASTER</a>
+            <ul>
+			    <LI>
+				<a href="{sumber}/adm/surat/m_klasifikasi.php" title="Klasifikasi Surat">Klasifikasi Surat</a>
+				</LI>
+				<LI>
+				<a href="{sumber}/adm/surat/m_lemari.php" title="Lemari Surat">Lemari Surat</a>
+				</LI>
+				<LI>
+				<a href="{sumber}/adm/surat/m_rak.php" title="Rak Surat">Rak Surat</a>
+				</LI>
+				<LI>
+				<a href="{sumber}/adm/surat/m_ruang.php" title="Ruang Surat">Ruang Surat</a>
+				</LI>
+				<LI>
+				<a href="{sumber}/adm/surat/m_map.php" title="Map Surat">Map Surat</a>
+				</LI>
+				<LI>
+				<a href="{sumber}/adm/surat/m_sifat.php" title="Sifat Surat">Sifat Surat</a>
+				</LI>
+				<LI>
+				<a href="{sumber}/adm/surat/m_status.php" title="Status Surat">Status Surat</a>
+				</LI>
+				<LI>
+				<a href="{sumber}/adm/surat/m_indeks.php" title="Indeks Berkas">Indeks Berkas</a>
+				</LI>
+
+
+            </ul>
+            
+            
+          </li>
+
+
+
+
+          <li class="drop-down"><a href="#">SURAT MASUK</a>
+            <ul>
+				<LI>
+				<a href="{sumber}/adm/surat/masuk.php" title="Data Surat Masuk">Data Surat Masuk</a>
+				</LI>
+			
+				<LI>
+				<a href="{sumber}/adm/surat/penempatan_masuk.php" title="Penempatan Surat Masuk">Penempatan Surat Masuk</a>
+				</LI>
+			
+				<LI>
+				<a href="{sumber}/adm/surat/cari_masuk.php" title="Cari Surat Masuk">Cari Surat Masuk</a>
+				</LI>
+			
+				<LI>
+				<a href="{sumber}/adm/surat/masuk_berkas_disposisi.php" title="Indeks Berkas Disposisi">Indeks Berkas Disposisi</a>
+				</LI>
+			
+				<LI>
+				<a href="{sumber}/adm/surat/rekap_masuk.php" title="Rekap Surat Masuk">Rekap Surat Masuk</a>
+				</LI>
+			
+				<LI>
+				<a href="{sumber}/adm/surat/rekap_bulanan_masuk.php" title="Rekap Bulanan Surat Masuk">Rekap Bulanan Surat Masuk</a>
+				</LI>
+			
+				<LI>
+				<a href="{sumber}/adm/surat/rekap_terima_masuk.php" title="Rekap Terima Surat Masuk">Rekap Terima Surat Masuk</a>
+				</LI>
+
+			    
+
+            </ul>
+            
+            
+          </li>
+          
+
+
+
+          <li class="drop-down"><a href="#">SURAT KELUAR</a>
+            <ul>
+				<LI>
+				<a href="{sumber}/adm/surat/keluar.php" title="Data Surat Keluar">Data Surat Keluar</a>
+				</LI>
+			
+				<LI>
+				<a href="{sumber}/adm/surat/penempatan_keluar.php" title="Penempatan Surat Masuk">Penempatan Surat Keluar</a>
+				</LI>
+			
+				<LI>
+				<a href="{sumber}/adm/surat/cari_keluar.php" title="Cari Surat Keluar">Cari Surat Keluar</a>
+				</LI>
+			
+				<LI>
+				<a href="{sumber}/adm/surat/keluar_berkas_disposisi.php" title="Indeks Berkas Disposisi">Indeks Berkas Disposisi</a>
+				</LI>
+			
+				<LI>
+				<a href="{sumber}/adm/surat/rekap_keluar.php" title="Rekap Surat Keluar">Rekap Surat Keluar</a>
+				</LI>
+			
+				<LI>
+				<a href="{sumber}/adm/surat/rekap_bulanan_keluar.php" title="Rekap Bulanan Surat Keluar">Rekap Bulanan Surat Keluar</a>
+				</LI>
+			
+				<LI>
+				<a href="{sumber}/adm/surat/rekap_kirim_keluar.php" title="Rekap Kirim Surat Keluar">Rekap Kirim Surat Keluar</a>
+				</LI>
+
+
+            </ul>
+            
+            
+          </li>
+          
+
+
+
+          
+        
+          <li><a href="{sumber}/logout.php">KELUAR</a></li>
+          
+          
+        </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+  </header><!-- End Header -->
+
+
+
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+
+		<div id="map_canvas"></div>
+
+
+      <div class="container">
+      	
+      	
+        <div class="row">
+
+          <div class="col-lg-12 col-md-12 footer-contact">
+			<h1>{judulku}</h1>
+
+	       <div class="row">
 	
+			<div class="col-md-12">
+			<div class="box">
+			
+			<div class="box-body">
+			<div class="row">
+			
+			
+				<div class="col-md-12">
 
 
-<div id="foo">
-	<div id="loading" style="display:none">
-	<img src="{sumber}/img/loading.gif" width="16" height="16">
-	<font color="white" style="background-color:red; width:200px;">
-	Loading...
-	</font>
-	</div>
-	
-	<div id="result"></div>
-	
+					<script>
+					$(document).ready(function() {
+						$('#table-responsive').dataTable( {
+						    "scrollX": true
+						    } );
+					});
+					</script>
+		
+		       		<div class="table-responsive">          
+						<table class="table" border="0">
+							<tbody>
+								<tr>
+									<td>
+										{isi}
+									</td>
+						        </tr>
+							</tbody>
+						</table>
+					</div>
+				
+        	    
+	    	    </div>
+				</div>
+				</div>
+				</div>
+			</div>
+			</div>
 
-	
-  <TABLE WIDTH=1200 BORDER=0 CELLPADDING=0 CELLSPACING=0>
-    <TR height="75" background="{sumber}/img/header.png">
-		<td>
-		<b>
-		<font size="6" color="#7b1f53">
-		SISFOSURAT
-		</font>
-		</b>
-		</font>
-
-	</TD>
-    </TR>
-  </TABLE>
-
-
- <table width="1200" border="0" cellpadding="0" cellspacing="0" bgcolor="#e3e4cc">
-    <tr>
-      <td valign="top">
-	  {isi_menu}
-	  </td>
-    </tr>
-  </table>
-</div>
+            
+          </div>
 
 
+        </div>
+      </div>
+    </div>
 
+    <div class="container d-lg-flex py-4">
 
-<div id="foo_isi">
+      <div class="mr-lg-auto text-center text-lg-left">
+        <div class="copyright">
+          &copy; 2021 <strong><span>{versi}</span></strong>.
+        </div>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
 
-<table width="1200" height="500" border="0" cellpadding="5" cellspacing="0" bgcolor="#e3e4cc">
-    <tr>
-      <td valign="top">
-	  {isi}
-	  <br>
-	  <br>
-	  <br>
-	  </td>
-    </tr>
-  </table>
-
-
-  <table width="1200" border="0" cellpadding="5" cellspacing="0" bgcolor="#a85475">
-    <tr>
-      <td align="left">
-	  <font color="white">
-	  &copy;2021. {versi}
-	  </font>
-	  </td>
-    </tr>
-  </table>
-
-
-</div>
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 
 
 
+	 <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="{sumber}/template/css/bootstrap.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="{sumber}/template/css/font-awesome.min.css">
+    <!-- Google fonts - Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700">
+    
+    
 
+
+
+
+<!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="{sumber}/template/adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{sumber}/template/adminlte/bower_components/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="{sumber}/template/adminlte/bower_components/Ionicons/css/ionicons.min.css">
+  <!-- jvectormap -->
+  <link rel="stylesheet" href="{sumber}/template/adminlte/bower_components/jvectormap/jquery-jvectormap.css">
+  
+  
+  
+
+
+
+  
+  
+
+
+<!-- jQuery 3 -->
+<script src="{sumber}/template/adminlte/bower_components/jquery/dist/jquery.min.js"></script>
+
+<!-- Bootstrap 3.3.7 -->
+<script src="{sumber}/template/adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- AdminLTE App -->
+<script src="{sumber}/template/adminlte/dist/js/adminlte.min.js"></script>
+
+
+
+<!-- Bootstrap core JavaScript -->
+<script src="{sumber}/template/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
+<!-- Bootstrap core CSS -->
+<link href="{sumber}/template/vendor/bootstrap-datepicker/css/bootstrap-datepicker.css" rel="stylesheet">
+
+
+
+<!-- ChartJS -->
+<script src="{sumber}/template/adminlte/bower_components/chart.js/Chart.js"></script>
+
+
+    
+
+
+
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{sumber}/template/adminlte/dist/css/AdminLTE.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="{sumber}/template/adminlte/dist/css/skins/skins-biasawae.css">
+
+
+
+
+
+
+
+
+  <!-- Vendor JS Files -->
+  <script src="{sumber}/template/flexor/assets/vendor/jquery/jquery.min.js"></script>
+  <script src="{sumber}/template/flexor/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="{sumber}/template/flexor/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="{sumber}/template/flexor/assets/vendor/php-email-form/validate.js"></script>
+  <script src="{sumber}/template/flexor/assets/vendor/jquery-sticky/jquery.sticky.js"></script>
+  <script src="{sumber}/template/flexor/assets/vendor/venobox/venobox.min.js"></script>
+  <script src="{sumber}/template/flexor/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="{sumber}/template/flexor/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="{sumber}/template/flexor/assets/vendor/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{sumber}/template/flexor/assets/js/main.js"></script>
+
+
+
+
+<script src="{sumber}/template/adminlte/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap datepicker -->
+<script src="{sumber}/template/adminlte/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 
 
 
 </body>
+
 </html>
