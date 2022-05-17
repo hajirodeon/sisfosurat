@@ -2,10 +2,12 @@
 sisfo surat masuk dan keluar
 
 
+update terbaru, ada di :
 
-file .sql ada folder /db
+https://gitlab.com/hajirodeon/sisfosurat
 
-file konfigurasi ada di file /inc/config.php
+
+
 
 
 
